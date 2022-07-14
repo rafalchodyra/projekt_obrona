@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+    <title>Grand Lubicz Uzdrowisko Ustka</title>
+<link rel="stylesheet" type="text/css" href="/css/signup.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="main_form">
+    	<a href="/login"><i class="fas fa-chevron-left back_button"> Back</i></a>
+        <h4 class="form_head">Create an account</h4>
+        <form th:action="@{/do_register}" method="post" th:object="${user}">
+            <div>
+                <div class="form_info">
+                    <h3 class="heading">Name:</h3>
+                    <input name="name" type="text" placeholder="Name" required th:value="${user.name}" class="form-control">
+                </div>
+                <div class="form_info">
+                    <h3 class="heading">Email Address:</h3>
+                    <input name="email" type="email" placeholder="Email" required th:value="${user.email}" class="form-control">
+                </div>
+                <div class="form_info">
+                    <h3 class="heading">Password:</h3>
+                    <input name="password" type="password" placeholder="Password" required class="form-control">
+                </div>
+                <div class="form_info">
+                    <h3 class="heading">Role:</h3>
+                    <select name="role" id="role" th:value="${user.role}" placeholder="Role" required class="form-control">
+                        <option value="ROLE_ADMIN">ADMIN</option>
+                        <option value="ROLE_USER" selected="true">USER</option>
+                    </select>
+                </div>
+                <div th:if="${nameExist}" class="error_msg">This username isn't available. Please try another.
+                    <th:block th:text="${#session.removeAttribute('message')}"></th:block></div>
+                <div th:if="${emailExist}" class="error_msg">Another account is using this e-mail address.
+                    <th:block th:text="${#session.removeAttribute('message')}"></th:block></div>
+                <div th:if="${session.message}" class="success_msg">Registration Successful
+                <th:block th:text="${#session.removeAttribute('message')}"></th:block></div>
+                <div class="form_info">
+                    <button class="add_user" type="submit">
+                            Register
+
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+    $.get("/user", function(data) {
+        $("#user").html(data.name);
+        $(".unauthenticated").hide()
+        $(".authenticated").show()
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins" , sans-serif;
+}
+body{
+	margin: 0;
+	padding: 0;
+}
+.heading{
+	text-align: center;
+	margin: 3rem 0 3rem 0;
+}
+.udel_icons{
+	position: relative;
+	display: flex;
+	justify-content: spaced-even;
+}
+.udel_icons a{
+	position: relative;
+	display: flex;
+	justify-content: spaced-even;
+	text-decoration: none;
+	color: black;
+	margin: auto;
+}
+
+.logout{
+	margin-top:1rem;
+}
+.sorting_btns{
+	display: flex;
+	position: absolute;
+	border: 1px solid black;
+	left:1300px;
+	top:80px;
+	
+}
+.sorting_btns a{
+	border: 1px solid black;
+	text-decoration: none;
+	font-weight:bold;
+	background: #EEEFEE;
+	color: black;
+}
+
+
+.navbar-custom{
+	background-color:#02091a ;
+}
+
+.navbar-custom .navbar-brand{
+	color: #bbbbbb;
+}
+
+.navbar-custom .navbar-nav{
+	color: #bbbbbb;
+}

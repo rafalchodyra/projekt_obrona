@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal">
+    </sec:authentication>
+</sec:authorize>
+<head>
+<meta charset="ISO-8859-1">
+    <title>Grand Lubicz Uzdrowisko Ustka</title>
+<link rel="stylesheet" type="text/css" href="/css/restaurant.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/hotel.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <a class="navbar-brand  " href="/hotel">Grand Lubicz Uzdrowisko Ustka</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/hotel">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/room_reservation">Rezerwacja</a></li>
+                <li class="nav-item"><a class="nav-link" href="/billing">Lista Rezerwacji</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/restaurant">Restauracja</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout">Wyloguj</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="heading_container">
+        <h1>Gdzie pasja,
+            zamienia się w sztukę... </h1>
+    </div>
+    <div class="cards_conatiner">
+        <div class="restaurant_card">
+            <div class="image_container">
+                <img src="https://static.toiimg.com/thumb/msid-24483292,width-550,height-433/24483292.jpg" alt="Sample Display Photo">
+            </div>
+            <div class="text_container">
+                <div class="name_container">
+                    <h4>Smaczne menu</h4>
+                </div>
+                <div class="general_info">
+                    <div class="restacontact_info">
+                        <div class="cuisine_info">
+                            Otoczenie, gościnność i doświadczenie personelu odpowiedzialnego za opiekę nad Gośćmi gwarantują profesjonalne przygotowanie każdej imprezy okolicznościowej, eventu lub spotkania w gronie rodzinnym. Pyszne potrawy przygotowane przez naszego Szefa Kuchni gwarantują sukces każdej imprezy.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

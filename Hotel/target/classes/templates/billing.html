@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/billing.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body>
+   <div class ="heading">
+	<h3>Lista Rezerwacji</h3>
+	</div>
+<div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Imie</th>
+                    <th>Nazwisko</th>
+                    <th>Data Przyjazdu</th>
+                    <th>Data Wyjazdu</th>
+                    <th>Pokoj</th>
+                    <th>Usun rezerwacje</th>
+                    </tr>
+            </thead>
+            <tbody>
+            	<tr th:if="${userRooms.empty}">
+            		<td colspan="3"> Brak zarezerwowanych pokoi </td>
+        		</tr>
+                <tr th:each="userRoom : ${userRooms}">
+		        	<td><span th:text="${userRoom.first_name}"> Imie </span></td>
+		        	<td><span th:text="${userRoom.last_name}"> Nazwisko </span></td>
+                    <td><span th:text="${userRoom.checkinDate}"> Data Przyjazdu </span></td>
+                    <td><span th:text="${userRoom.checkoutDate}"> Data Wyjazdu </span></td>
+                    <td><span th:text="${userRoom.category}"> Pokoj </span></td>
+                    <td><a th:href="@{'billing/delete/'+${userRoom.getrId()}}">
+                        <i class="fas fa-trash-alt m-auto"></i>
+                    </a></td>
+		        </tr>
+            </tbody>
+        </table>
+    </div>	
+	
+</body>
+</html>
